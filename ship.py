@@ -31,12 +31,13 @@ class Ship:
     def update(self):
         """ This is to update the ship's position based on the movement flag"""
         # this will update the value of the center of the ship, but
-        # not it's rectangle
-        # which we do because we're moving by partial pixels
+        # not it's rectangle which we do because we're moving by partial pixels
         # and the rect will only store integer portions of decimals
-        if self.moving_right:
+
+        # adding in the and statement so that the ship doesn't go past the screen
+        if self.moving_right and self.rect.right < self.screen_rect.right:
             self.center += self.ai_settings.ship_speed_factor
-        elif self.moving_left:
+        elif self.moving_left and self.rect.left > 0:
             self.center -= self.ai_settings.ship_speed_factor
 
         # updating the rect obj from self.center
