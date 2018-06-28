@@ -26,9 +26,9 @@ def check_events():
         if event.type == pygame.QUIT:
             sys.exit()
         elif event.type == pygame.KEYDOWN:
-            check_keyup_events(event, ship)
-        elif event.type == pygame.KEYUP:
             check_keydown_events(event, ship)
+        elif event.type == pygame.KEYUP:
+            check_keyup_events(event, ship)
 
 
 
